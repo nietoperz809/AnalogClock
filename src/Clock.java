@@ -25,18 +25,11 @@ class Clock extends JPanel
 		offgraph.fillRect(0,0, imgw, imgh);
 	}
 
-	// Calcculate start and end of a line
-	// Berechnet den EndPunkt einer Geraden, deren StartPunkt der
-	// MittelPunkt eines Kreises ist.
-	// Eingabe:  xs,ys, -> der MittelPunkt
-	//        	 rad -> Radius des Kreises
-	//			 angle -> Winkel der Geraden
-
 	/**
-	 * Calculate start and end points of a line beginning at the center of a circle
+	 * Calculate end points of a line beginning at the center of a circle
 	 * @param center center of circle
-	 * @param rad
-	 * @param angle
+	 * @param rad length of line
+	 * @param angle Angle
 	 * @return endpoint
 	 */
 	private Point CirclePoint (Point center, int rad, int angle)
@@ -47,7 +40,7 @@ class Clock extends JPanel
 		return new Point (center.x+(int)x, center.y+(int)y);
 	}
 	
-	// Tick von ausserhalb
+	// Tick to drive the clock
 	public synchronized void Tick()
 	{
 		GregorianCalendar cal = new GregorianCalendar();
